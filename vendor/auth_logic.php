@@ -15,6 +15,8 @@ if ($login === 'Adminka' && $password === 'admin') {
 }
 
 
+$password = md5($password);
+
 
 $query = "SELECT * FROM users WHERE login = \$1 AND password = \$2";
 $result = pg_query_params($connect, $query, array($login, $password));
